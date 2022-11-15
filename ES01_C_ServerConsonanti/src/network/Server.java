@@ -41,6 +41,7 @@ public class Server {
 				System.out.println("Server: ricevuto messaggio " + clientMsg );
 				
 				//Calcoliamo consonanti e vocali
+				clientMsg.toLowerCase();
 				for(i=0; i<clientMsg.length(); i++) 
 				{
 					if(clientMsg.charAt(i)=='a'||clientMsg.charAt(i)=='e'||clientMsg.charAt(i)=='i'||clientMsg.charAt(i)=='o'||clientMsg.charAt(i)=='u') {
@@ -54,7 +55,7 @@ public class Server {
 					clientMsg = "quit";
 					flag="quit";
 					
-					outStream.writeUTF("Interruzione. Le consonanti sono la metà delle vocali");
+					outStream.writeUTF("Interruzione. Le consonanti sono la metÃ  delle vocali");
 				}
 				else
 				{
