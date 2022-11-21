@@ -22,8 +22,8 @@ public class Prenotazione {
         return res;
     }
     
-    public synchronized String setReservation( int seatNum, String name ) {
-    	String result = "Prenotazione perr " + name + " Rifiutata";
+    public synchronized String setReservation( int seatNum, String name ) {      //se l'utente sceglie un posto già prenotato verrà stampato a video "prenotazione rifiutata"
+    	String result = "Prenotazione per " + name + " Rifiutata";                 //altrimenti la prenotazione verrà accettata
     	if ( reservations[seatNum].equals("Posto disponibile")) {
     		 reservations[seatNum]=name;
     		 result="Prenotazione per " + name + " Accettata ";
