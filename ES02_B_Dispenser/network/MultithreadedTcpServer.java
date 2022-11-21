@@ -16,7 +16,7 @@ public class MultithreadedTcpServer {
 
 	public static void main(String[] args) throws Exception {
 	   
-		int count = 0;                  // conta il numero di client
+		int count = 0;                  // conta il numero di clienti 
 		String risultato;
 		// Creazione del socket
 		ServerSocket server = new ServerSocket(SRV_PORT);
@@ -25,17 +25,17 @@ public class MultithreadedTcpServer {
 			count++;
 			// Attendiamo le richieste di connessione dei client
 			System.out.println("Server: in ascolto sulla porta " + SRV_PORT );
-			Socket serverClientSocket = server.accept();  // bloccante
+			Socket serverClientSocket = server.accept();
 			
 			DataInputStream inStream = new DataInputStream(serverClientSocket.getInputStream());
 			DataOutputStream outStream = new DataOutputStream(serverClientSocket.getOutputStream());
 			
 			System.out.println("Sto servendo il cliente " + count);
-			// Handle the client communication
+			// Gestisce la comunicazione con il Client
 			TcpServer sa = new TcpServer(serverClientSocket, count);
 			
 			System.out.println("Cliente numero: "+count);
-			risultato=""+count;
+			risultato=""+count;   //la funzione outStream.writeUTF() può mandare solo tipi String, quindi per mandare la variabile count al client la avvaloro a "risultato"
 			outStream.writeUTF(risultato);
 			outStream.flush();
 			
