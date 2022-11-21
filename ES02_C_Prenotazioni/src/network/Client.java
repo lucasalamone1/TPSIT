@@ -20,12 +20,12 @@ public class Client {
 			
 			printMenu();	
 			
-			// Create connection to server socket
+			// Viene creata una connessione al server
 			System.out.print("Client: Tentativo di connessione server=" + severAddress + ":" + severPort + " ... ");
 			Socket socket = new Socket(severAddress, severPort); //
 
 			System.out.println("Connected");
-			// Create streams to read/write data
+			// Creo inStream/outStream per leggere e scrivere dati
 			DataInputStream inStream   = new DataInputStream(socket.getInputStream());
 			DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
 
@@ -33,18 +33,19 @@ public class Client {
 			
 			while (!clientCommand.equals("end")) {
 
-				// Prompt user to enter some number or 'end'
+				//Comandi inviati dall'utente
 				clientCommand = prompt();
-			    System.out.println("Client: invio il comando: " + clientCommand);
-				outStream.writeUTF(clientCommand);    // bloccanre
+			    	System.out.println("Client: invio il comando: " + clientCommand);
+				outStream.writeUTF(clientCommand);   
 				outStream.flush();
-				// Read data from socket input stream
-				serverMessage = inStream.readUTF();      // bloccante  
+				
+				// Vengono letti i dati dal flusso di input del socket
+				serverMessage = inStream.readUTF();      
 				System.out.println("Client: ricevuto il messaggio: " + serverMessage);
 		        
 			}
 			System.out.println("Client: disconnecting");
-			// Close resources
+			// Chiusura delle risorse usate
 			outStream.close();
 			outStream.close();
 			socket.close();
@@ -56,7 +57,7 @@ public class Client {
 		}
 	}
 	
-	
+	//Menu che mostra i comandi disponibili
 	public static void printMenu() {
 		System.out.println("Help: comandi disponibili");
 		System.out.println("  help");
@@ -66,6 +67,7 @@ public class Client {
 
 	}
 	
+	//Funzione per far inserire un comando dall'utente
 	public static String prompt() {
 		scanner = new Scanner(System.in);
 		System.out.print("inserisci comando> ");
