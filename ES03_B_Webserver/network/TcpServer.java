@@ -57,20 +57,20 @@ public class TcpServer {
 				
                 switch(clientMsgArr[1]) {
 
-                    case "/on":	serverMsg += "Le luci sono state <u>accese</u>";
-                    	break;
+                	case "/on":	serverMsg += "Le luci sono state <u>accese</u>";
+                    		break;
 
-                    case "/off": serverMsg += "Le luci sono state <u>spente</u>";
-                        break;
+                	case "/off":	serverMsg += "Le luci sono state <u>spente</u>";
+                        	break;
 
-					case "/quit":	serverMsg += "Connessione <b> terminata </b>";
-									endConn = true;
-                        break;
+			case "/quit":	serverMsg += "Connessione <b> terminata </b>";
+					endConn = true;
+                        	break;
 					
-					case "/": 	serverMsg += "|<b>MENU</b>|	/on: per accendere le luci\n -- /off: per spegnere le luci -- /quit: per terminare la connessione";
-						break;
+			case "/": 	serverMsg += "|<b>MENU</b>|	/on: per accendere le luci\n -- /off: per spegnere le luci -- /quit: per terminare la connessione";
+				break;
 
-                    default : 	serverMsg += "Errore";           
+                    	default : 	serverMsg += "Errore";           
                 }
 
             	System.out.println(serverMsg + "\n");		
