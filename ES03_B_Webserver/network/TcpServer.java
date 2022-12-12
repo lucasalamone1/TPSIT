@@ -58,16 +58,17 @@ public class TcpServer {
                 switch(clientMsgArr[1]) {
 
                     case "/on":	serverMsg += "Le luci sono state <u>accese</u>";
-                                        break;
+                    	break;
 
                     case "/off": serverMsg += "Le luci sono state <u>spente</u>";
-                                    	break;
+                        break;
 
 					case "/quit":	serverMsg += "Connessione <b> terminata </b>";
 									endConn = true;
-                                    break;
+                        break;
+					
 					case "/": 	serverMsg += "|<b>MENU</b>|	/on: per accendere le luci\n -- /off: per spegnere le luci -- /quit: per terminare la connessione";
-								break;
+						break;
 
                     default : 	serverMsg += "Errore";           
                 }
