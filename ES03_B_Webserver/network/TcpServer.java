@@ -35,15 +35,15 @@ public class TcpServer {
 				BufferedReader inStream = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 	
 				
-                //Lettura dati dal client un righa alla volta   
-                clientMsg=inStream.readLine();
+                		//Lettura dati dal client un righa alla volta   
+                		clientMsg=inStream.readLine();
 				System.out.println(clientMsg);	
 		 
-                // Elaborare qui i dati ricevuti dal client 
+               			// Elaborare qui i dati ricevuti dal client 
 				
 				
 				//funzione per togliere gli spazi all'inizio e alla fine della stringa
-                clientMsg.trim();	
+                		clientMsg.trim();	
 				String clientMsgArr[]=clientMsg.split("\\s+");
 
 				// ---------------------------------------------------------
@@ -53,7 +53,7 @@ public class TcpServer {
 				
 				//serverMsg += "Connection: close\r\n";
 				serverMsg += "Content-Type: text/html\r\n"; 
-                serverMsg += "\r\n";
+                		serverMsg += "\r\n";
 				
                 switch(clientMsgArr[1]) {
 
