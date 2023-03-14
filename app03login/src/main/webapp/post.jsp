@@ -13,7 +13,7 @@
 	String password = request.getParameter("psw");
 
 	if(username.equals("Luca") && password.equals("admin"))
-		out.println("Accesso consentito");
+		out.println("Accesso consentito "+username);
 	else
 		out.println("Accesso negato");
 
